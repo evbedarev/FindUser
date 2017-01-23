@@ -12,4 +12,8 @@ def Run_command(ip):
 	proc.kill()
 	output = proc.communicate()
 	# print(output)
-	return output
+	string = output[0].decode('utf-8')
+	string = string[string.find("SBT"):string.find("SBT")+40]
+	return string
+
+# Run_command("localhost")

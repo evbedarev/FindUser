@@ -19,17 +19,18 @@ class Application(Frame):
 		self.ent_uname = Entry(self,width = 55)
 		self.ent_uname.grid(row = 5, column = 0,columnspan=2,sticky = W)
 		
-		self.ok_bttn = Button(self, text = "Save", command = self.saveTofile)
+		self.ok_bttn = Button(self, text = "Start", command = self.findUser)
 		self.ok_bttn.grid(row = 15, column = 0, sticky= W)
 
-	def saveTofile(self):
+	def findUser(self):
 		import FindIp
 		fp = FindIp.Run_command(self.ent_utc.get())
 
 		self.ent_uname.insert(0, fp)
 
 root = Tk()
-root.title("hellow!!")
-root.geometry("500x500")
+root.title("FindUser")
+root.geometry("500x150")
 app = Application(root)
 root.mainloop()
+# output[0]
