@@ -1,19 +1,23 @@
-import subprocess as sp
-import time
+# import subprocess as sp
+# import time
+# def Run_command(ip):
+# 	output = []
+# 	proc = sp.Popen([r'C:\Windows\System32\cmd.exe',
+# 		' WMIC /NODE:',
+# 		'"' + ip + '"',
+# 		' COMPUTERSYSTEM GET USERNAME'],
+# 		stdout = sp.PIPE)
+# 	time.sleep(3)
+# 	proc.kill()
+# 	output = proc.communicate()
+# 	print(output)
+# 	string = output[0].decode('utf-8')
+# 	string = string[string.find("SBT"):string.find("SBT")+40]
+# 	return string
+# Run_command("127.0.0.1")
 
-def Run_command(ip):
-	output = []
-	proc = sp.Popen([r'C:\WINDOWS\system32\WindowsPowerShell\v1.0\powershell.exe',
-		'GET-WMIOBJECT -Class Win32_ComputerSystem -Computer',
-		'"' + ip +'"',
-		'|  select-Object Username'],
-		stdout = sp.PIPE)
-	time.sleep(3)
-	proc.kill()
-	output = proc.communicate()
-	# print(output)
-	string = output[0].decode('utf-8')
-	string = string[string.find("SBT"):string.find("SBT")+40]
-	return string
+import wmi
 
-# Run_command("localhost")
+c = wmi.WMI('172.29.96.35')
+for process in c.Win32_Process(name='explorer.exe'):
+	print (process.GetOwner())

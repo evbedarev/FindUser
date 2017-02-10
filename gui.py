@@ -4,7 +4,7 @@ class Application(Frame):
 	"""docstring for Application"""
 	def __init__(self, master):
 		super(Application, self).__init__(master)
-		self.grid(row=2,column=2)
+		self.grid(row=5,column=5)
 		self.create_widgets()
 
 
@@ -20,7 +20,7 @@ class Application(Frame):
 		self.ent_uname.grid(row = 5, column = 0,columnspan=2,sticky = W)
 		
 		self.ok_bttn = Button(self, text = "Start", command = self.findUser)
-		self.ok_bttn.grid(row = 15, column = 0, sticky= W)
+		self.ok_bttn.grid(row = 7, column = 1, sticky= W)
 
 	def findUser(self):
 		import FindIp
@@ -30,7 +30,7 @@ class Application(Frame):
 
 root = Tk()
 root.title("FindUser")
-root.geometry("500x150")
+root.geometry("350x130")
 app = Application(root)
 root.mainloop()
 # output[0]
